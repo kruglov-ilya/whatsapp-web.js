@@ -131,7 +131,7 @@ class Client extends EventEmitter {
             await new Promise((r) => setTimeout(r, 200));
         }
         if (!res) {
-            throw 'auth timeout';
+            throw new Error('auth timeout');
         }
         await this.setDeviceName(
             this.options.deviceName,
@@ -342,7 +342,7 @@ class Client extends EventEmitter {
                         await new Promise((r) => setTimeout(r, 200));
                     }
                     if (!res) {
-                        throw 'ready timeout';
+                        throw new Error('ready timeout');
                     }
 
                     /**
